@@ -1,16 +1,22 @@
 #include "bubble_sort.h"
 
-void bubbleSort(char** array, int size) {
-    int i, j;
-    char* temp;
+void bubbleSort(int arr[], int n) {
+    int temp;
+    int swapped;
 
-    for (i = 0; i < size - 1; i++) {
-        for (j = 0; j < size - i - 1; j++) {
-            if (strcmp(array[j], array[j + 1]) > 0) {
-                temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
+    for (int i = 0; i < n - 1; i++) {
+        swapped = 0;
+
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1;
             }
+        }
+        if (!swapped) {
+            break;
         }
     }
 }
